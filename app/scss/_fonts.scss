@@ -1,0 +1,58 @@
+/* ----
+// Imports Fonts
+------- */
+
+@font-face {
+  font-family: 'Chalet_Book';
+  src: url('../fonts/Chalet_Book.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Chalet_Book';
+  src: url('../fonts/Chalet_Book_Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Chalet_Book';
+  src: url('../fonts/Chalet_Book_Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Chalet_Book';
+  src: url('../fonts/Chalet_Book_Bold_Italic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+/* ----
+// Fonts Styles
+------- */
+
+.title-h1 {
+  font-family: 'Chalet_Book';
+  font-size: 500px;
+  font-weight: normal;
+}
+
+.txt-header {
+  font-family: 'Chalet_Book';
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.txt-mainNav, .title-h2 {
+  font-family: 'Chalet_Book';
+  font-size: 80px;
+  font-weight: normal;
+}
+
+.txt-paragraph {
+  font-family: 'Chalet_Book';
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 25px;
+}

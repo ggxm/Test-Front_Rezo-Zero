@@ -1,0 +1,338 @@
+/* ----
+// Imports
+------- */
+
+@import 'colors';
+@import 'fonts';
+
+
+/* ----
+// Settings
+------- */
+$duration : 200ms;
+$durationTrans : 600ms;
+$easing : ease-in-out;
+
+
+/* ----
+// Hide Default Scrollbar
+------- */
+/* Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+/* MS Browsers (Edge, Internet Explorer) */
+* {
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch; /* Touch scroll by default */
+}
+
+
+/* ----
+// Main
+------- */
+main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  width: 100vw;
+  height: 100vh;
+  transition: all $durationTrans $easing;
+}
+
+
+/* ----
+// Transition
+------- */
+.transition {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  .transition__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: $darker-grey;
+    transition: all $durationTrans $easing;
+    &.active {
+      top: auto;
+      bottom: 0;
+      height: 100%;
+    }
+  }
+  .transition__slideBack {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: $darker-grey;
+    transition: all $durationTrans $easing;
+    &.active {
+      top: 0;
+      height: 100%;
+    }
+  }
+}
+
+
+/* ----
+// Background
+------- */
+.background {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -59%);
+    margin: 0;
+    white-space: nowrap;
+    color: $light-grey;
+    cursor: default;
+  }
+  .background__img {
+    position: absolute;
+    width: 584px;
+    &:first-of-type {
+      top: -120px;
+      left: 50%;
+      transform: translateX(-20%);
+    }
+    &:last-of-type{
+      bottom: -120px;
+      right: 50%;
+      transform: translateX(20%);
+    }
+  }
+}
+.pageActive .background {
+  h1 {
+    display: none;
+  }
+  .background__img {
+    position: fixed;
+    width: 110%;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+    &:last-of-type {
+      display: none;
+    }
+  }
+}
+
+
+/* ----
+// Header
+------- */
+.header {
+  margin: 0;
+  padding: 34px 0 0 130px;
+  .header__identity {
+    display: inline-block;
+    list-style: none;
+    margin-left: 80px;
+    &:first-child {
+      margin-left: 0;
+    }
+    a {
+      display: block;
+      position: relative;
+      padding-bottom: 4px;
+      text-decoration: none;
+      color: $darker-grey;
+      &:before {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background: $darker-grey;
+        transition: all $duration $easing;
+      }
+      &:hover:before {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+}
+.pageActive .header .header__identity a {
+  color: $white;
+  &:before {
+    background-color: $white;
+  }
+}
+
+
+/* ----
+// Main Nav
+------- */
+.underlineNav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 1px;
+  background-color: $light-black-transparent;
+}
+.mainNav {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-76%);
+  max-width: 100%;
+  width: 100vw;
+  margin: 0;
+  padding: 0 120px;
+  box-sizing: border-box;
+  .mainNav__elem {
+    list-style: none;
+    margin: 0;
+    color: $darker-grey;
+    &:first-child {
+      margin-left: 0;
+    }
+    a {
+      display: block;
+      position: relative;
+      padding: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      color: $darker-grey;
+      transition: all $duration $easing;
+      &:before {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $darker-grey;
+        transition: all $duration $easing;
+      }
+      &:hover {
+        color: $white;
+        &:before {
+          top: 0;
+        }
+      }
+    }
+    &:nth-child(even) a {
+      color: $grey;
+      &:hover {
+        color: $white;
+      }
+    }
+    &.mainNav__elem--pageActive {
+      display: none;
+    }
+  }
+}
+.pageActive .mainNav {
+  .mainNav__elem {
+    display: none;
+  }
+  .mainNav__elem--pageActive {
+    display: block;
+  }
+}
+
+
+/* ----
+// Pages
+------- */
+.page {
+  display: none;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 110px 50px;
+  transition: all $durationTrans $easing;
+  &.active {
+    display: block;
+  }
+  .pageWrap {
+    background-color: $white;
+  }
+  .pageBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    h1 {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -59%);
+      margin: 0;
+      white-space: nowrap;
+      color: $light-grey;
+      cursor: default;
+    }
+  }
+  .scrollbar {
+    position: fixed;
+    top: 110px;
+    right: 50px;
+    width: 24px;
+    height: 0;
+    .scrollbar__thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $dark-grey;
+    }
+  }
+  .pageContent {
+    position: relative;
+    top: -145px;
+    left: 0;
+    margin-left: 36%;
+    h2 {
+      margin: 0 0 30px 0;
+      color: $darker-grey;
+    }
+    p {
+      width: 490px;
+      color: $darker-grey;
+      margin: 0 0 130px 0;
+    }
+    .pageContent__img {
+      width: 585px;
+      margin-bottom: 40px;
+      vertical-align: bottom;
+    }
+  }
+}
