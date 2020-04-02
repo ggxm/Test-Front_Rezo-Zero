@@ -4,7 +4,7 @@ Réalisation d'un test de développement front-end pour l'entreprise [Rezo Zero]
 
 ## Instructions
 
-Il s'agit de réaliser le portfolio du très célèbre photographe : John Doe.
+Il s'agit de réaliser le portfolio (format desktop) du très célèbre photographe : John Doe.
 
 Le but est de créer assez rapidement une navigation entre une Home et plusieurs pages de détails en réfléchissant aux interactions et aux transitions. Vous pouvez remplir avec autant de faux contenus que nécessaire si les médias fournis ne suffisent pas.
 
