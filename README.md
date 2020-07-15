@@ -28,6 +28,8 @@ ___
 
 ## Mon rendu
 
+Pour voir mon rendu en ligne, [cliquez ici](https://ggxm.github.io/Test-Front_Rezo-Zero/dist/) !
+
 J'ai structuré le projet afin d'avoir un site en développement (dossier "app") et un site optimisé en production (dossier "dist"). J'ai géré mon environnement en automatisant des tâches avec le task runner Gulp. Aussi, j'ai décidé d'utiliser pour la première fois la méthodologie BEM (Block Element Modifier) pour mieux structurer mon code CSS de façon à éviter les conflits et de rendre le code réutilisable et modulable.
 
 ### Technos utilisées
